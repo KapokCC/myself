@@ -1,0 +1,1140 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>个人博客</title>
+	</head>
+	<style>
+	    /*首播栏*/
+	    #shouye{
+	    	width: 94%;
+	    	margin-left: 3%;
+	    }
+		#title{
+			width:100%;
+			height: 250px;
+			background: url(img/true.jpg) no-repeat; 
+			background-size: 100% 100%;
+		}
+		#per{
+			width:90%;
+			height: 50px;
+			position: absolute;
+			top:30px;
+			left:330px;
+		}
+		input:nth-of-type(1){
+			float: right;
+			margin-top: 20px;
+			margin-right: 350px;
+			width: 24px;
+			height: 24px;
+			background: url(img/search.png) no-repeat;
+			border-radius: 20px;
+			border: 2px solid gray;
+			}
+		input:nth-of-type(2){
+			float: right;
+			margin-top: 20px;
+			width: 31px;
+			height: 31px;
+			border-radius: 25px;
+			background: url(img/user.png) no-repeat;
+			border: 2px solid gray;}
+		@keyframes an_unfold{
+			from{width: 28px;}
+			to{width: 200px;}
+		}
+		@keyframes an_fold{
+			from{width: 200px;}
+			to{width: 28px;}
+		}
+		/*个人头像*/
+		#photo{
+				width: 200px;
+				height: 200px;
+				transform: rotate(50deg);			
+				position: absolute;
+				left: 200px;
+				top: 80px;
+				border: 0.5px solid gainsboro;
+			}
+		#photo img{position: relative;left: 0px;top: 10px;}
+		#photo:hover{
+				transform: rotate(410deg);
+				transition: 3s;
+			}
+		/*导航*/
+		#zhuml{
+			width: 100%;
+			height: 80px;
+			background-color:khaki;
+			margin-top: -16px;
+		}
+		ul li {
+			list-style: none;
+			float: left;
+			font-size: 22px;
+			font-weight: 550;
+			line-height: 80px;
+			width: 16.5%;
+			height: 80px;
+			margin-left: 25px;
+		}
+		li:hover{
+			background-color: lemonchiffon;
+		}
+		#menu{
+			width: 35px;
+			height: 35px;
+			margin-left: 37%;
+		}
+		#cy{font-size: 18px;white-space: pre;}
+		/*个人档案*/
+		#first{
+			width: 94%;
+			height: 670px;
+	    	margin-left: 3%;
+	    	background-color: lemonchiffon;
+		}
+		#second{
+			width: 94%;
+			height: 1000px;
+	    	margin-left: 3%;
+	    	background-color: #e7f0ef;
+		}
+		#third{
+			width: 94%;
+			height: 800px;
+	    	margin-left: 3%;
+	    	background-color: lemonchiffon;
+		}
+		#fourth{
+			width: 94%;
+			height: 800px;
+	    	margin-left: 3%;
+	    	background-color: #e7f0ef;
+		}
+		#fangkuang{
+				width: 80%;
+				height: 550px;
+				padding-top: 30px;
+				margin-left: 150px;
+			}
+		#time{width: 20%;height: 70px;float: left;text-align: center;line-height: 40px;}
+		#img_grow{width: 20%;height: 70px;float: left;text-align: center;line-height: 20px;}
+		#img_grow:nth-of-type(1){position: absolute;left:16%;}
+		#img_grow:nth-of-type(2){position: absolute;left: 31%;}
+		#img_grow:nth-of-type(3){position: absolute;left: 46%;}
+		#img_grow:nth-of-type(4){position: absolute;left: 61%;}
+		#img_grow:nth-of-type(5){position: absolute;left: 76%;}
+		#wenzi:nth-of-type(1){position: absolute;left: 4%;}
+		#wenzi:nth-of-type(2){position: absolute;left: 9%;}
+		#wenzi:nth-of-type(3){position: absolute;left: 14%;}
+		#wenzi:nth-of-type(4){position: absolute;left: 19%;}
+		#wenzi:nth-of-type(5){position: absolute;left: 24%;}
+		#img_grow img{width: 50px;height: 50px;display: none;}
+		#img_grow:hover img{
+				display: block;
+			}
+		#img_grow:hover p{
+				display: block;
+			}
+		#wenzi{
+				display: none;
+			}
+		#table1{margin-top: 20px;}
+		#table1 td{
+				color: #e2c9aa;
+				line-height: 30px;
+			}
+		#table2 td{
+				color: #6fa66f;
+				line-height: 30px;
+			}
+		*{
+				margin: 0;
+			}
+		/*路上风景*/
+		#time1{width: 20%;height: 70px;float: left;text-align: center;line-height: 30px;}
+		
+		#view1{
+				width: 80%;
+				height: 780px;
+				position: absolute;
+				top: 1180px;
+				display: block;
+			}
+		#view1 div{width: 30%;
+				  height: 285px;
+				  float: left;
+				  margin-left: 5px;
+				  margin-top: 20px;
+				  border-radius: 5px;
+				  overflow: hidden;
+				  box-shadow:0px 0px 4px gray;}
+		#view1 img{opacity: 0.88;}
+		#view2{
+				width: 80%;
+				height: 780px;
+				background-color: #e7f0ef;
+				position: absolute;
+				top: 1180px;
+				display: none;
+			}
+		#view2 div{width: 30%;
+				  height: 285px;
+				  float: left;
+				  margin-left: 5px;
+				  margin-top: 20px;
+				  border-radius: 5px;
+				  overflow: hidden;
+				  box-shadow:0px 0px 4px gray;}
+		#view2 img{opacity: 0.88;}
+		#view3{
+				width: 80%;
+				height: 780px;
+				background-color: #e7f0ef;
+				position: absolute;
+				top: 1180px;
+				display: none;
+			}
+		#view3 div{width: 30%;
+				  height: 285px;
+				  float: left;
+				  margin-left: 5px;
+				  margin-top: 20px;
+				  border-radius: 5px;
+				  overflow: hidden;
+				  box-shadow:0px 0px 4px gray;}
+		#view3 img{opacity: 0.88;}
+		#view4{
+				width: 80%;
+				height: 780px;
+				background-color: #e7f0ef;
+				position: absolute;
+				top: 1180px;
+				display: none;
+			}
+		#view4 div{width: 30%;
+				  height: 285px;
+				  float: left;
+				  margin-left: 5px;
+				  margin-top: 20px;
+				  border-radius: 5px;
+				  overflow: hidden;
+				  box-shadow:0px 0px 4px gray;}
+		#view4 img{opacity: 0.88;}
+		#view5{
+				width: 80%;
+				height: 780px;
+				background-color: #e7f0ef;
+				position: absolute;
+				top: 1180px;
+				display: none;
+			}
+		#view5 div{width: 30%;
+				  height: 285px;
+				  float: left;
+				  margin-left: 5px;
+				  margin-top: 20px;
+				  border-radius: 5px;
+				  overflow: hidden;
+				  box-shadow:0px 0px 4px gray;}
+		#view5 img{opacity: 0.88;}
+		nav{
+			width: 100%;
+			height: 15%;
+			line-height: 40px;
+			transition: 0.5s;
+		}
+		/*更新日志*/
+		i:nth-of-type(1){
+			width: 0px;
+			height: 0px;
+			display: inline-block;
+			position: relative;
+			border-style: solid;
+			border-width: 12px;
+			border-color:transparent transparent transparent gray;
+			top: 4px;left: 20px;
+		}
+		i:nth-of-type(2){
+			width: 0px;
+			height: 0px;
+			display: inline-block;
+			position: relative;
+			border-style: solid;
+			border-width: 12px;
+			border-color:transparent transparent transparent gray;
+			top: 4px;left: 20px;
+		}
+		i:nth-of-type(3){
+			width: 0px;
+			height: 0px;
+			display: inline-block;
+			position: relative;
+			border-style: solid;
+			border-width: 12px;
+			border-color:transparent transparent transparent gray;
+			top: 4px;left: 20px;
+		}
+		#i4{
+			width: 0px;
+			height: 0px;
+			display: inline-block;
+			position: relative;
+			border-style: solid;
+			border-width: 12px;
+			border-color:gray transparent transparent transparent ;
+			top: 4px;
+			left: 20px;
+		}
+		.year_2010,.year_2012,.year_2014{
+				width: 90%;
+				height: 320px;
+				position: relative;
+				left: 150px;
+				height: 0px;
+				overflow: hidden;
+			}
+		.year_2016{
+				width: 90%;
+				height: 180px;
+				position: relative;
+				left: 150px;
+				height: 180px;
+				overflow: hidden;
+			}
+		@keyframes zhankai{
+				from{height: 0px;}
+				to{height: 320px;}
+			}
+		@keyframes shouhui{
+				from{height: 320px;}
+				to{height: 0px;}
+			}
+		@keyframes zhankai1{
+				from{height: 0px;}
+				to{height: 180px;}
+			}
+		@keyframes shouhui1{
+				from{height: 180px;}
+				to{height: 0px;}
+			}
+		#diary{margin-top: 20px;}	
+		#diary span{
+			          margin-left: 70px;
+			          font-size: 18px;}
+		#img1{width: 50px;height: 60px;position: absolute;left: 125px;top: 10px;}
+		#img2{width: 35px;height: 45px;position: absolute;left: 133px;top: 90px;}
+		#img3{width: 35px;height: 45px;position: absolute;left: 133px;top: 170px;}
+		#img4{width: 35px;height: 45px;position: absolute;left: 131px;top: 250px;}
+		b{
+			color: #6FA66F;
+			font-size: 18px;
+		}
+		/*一些话*/
+		#left1,#left2,#left3,#left4{
+			width: 110px;
+			height: 644px;
+			font-size: 36px;
+			writing-mode: tb-rl;
+			text-align: center;
+			line-height: 120px;
+		}
+		#right1,#right2,#right3,#right4{
+			width: 680px;
+			height: 644px;
+			line-height: 29px;
+		}
+		#left1{
+				background-color: #8dd7a6;
+				color: #3c7f53;
+				position: absolute;
+				left: 190px;
+				top: 2863px;
+			}
+		#left1 a:link{
+			color: #3c7f53;
+			text-decoration: none;
+		}
+		#right1{
+				background-color: #8dd7a6;
+				position: absolute;
+				left: 300px;
+				top: 2863px;
+				color: #3c7f53;
+				overflow: hidden;
+			}
+		#left2{
+				background-color: #ffd3a6;
+				position: absolute;
+				left: 300px;
+				top: 2863px;
+				transition: 2s;
+		    }
+		#left2 a:link{color: #875c2f;text-decoration: none;}
+	    #right2{
+				background-color: #ffd3a6;
+				position: absolute;
+				left: 410px;
+				top: 2863px;
+				transition: 2s;
+				color: #875c2f;
+				overflow: hidden;
+			}
+		#left3{
+				background-color: #f6f3a4;
+				position: absolute;
+				left: 410px;
+				top: 2863px;
+				transition: 2s;
+			}
+		#left3 a:link{color: #c1c276;text-decoration: none;}
+		#right3{
+				background-color: #f6f3a4;
+				position: absolute;
+				left: 520px;
+				top: 2863px;
+				transition: 2s;
+				color: #c1c276;
+				overflow: hidden;
+			}
+		#left4{
+				background-color: #f7a262;
+				position: absolute;
+				left: 520px;
+				top: 2863px;
+				transition: 2s;
+			}
+		#left4 a:link{color: #7f4628;text-decoration: none;}
+		#right4{
+				background-color: #f7a262;
+				position: absolute;
+				left: 630px;
+				top: 2863px;
+				transition: 2s;
+				color: #7f4628;
+				overflow: hidden;
+			}
+		@keyframes zk{
+				from{width: 0px;}
+				to{width: 680px;}
+			}
+		@keyframes sh{
+				from{width: 680px;}
+				to{width: 0px;}
+			}
+	</style>
+	<body>
+		<div id="shouye">
+			<div id="title">	
+				
+			</div>
+			<div id="per">
+				<input type="text" onfocus="unfold(0)" onblur="fold(0)"/>
+				<input type="button" value="      嘻嘻，欢迎来到我的空间" onfocus="unfold(1)" onblur="fold(1)"/>
+				<h3 style="font-weight:400 ;float: right;color:yellow;margin-top:20px ;">欢迎来到JACY的个人中心！</h3>
+			</div>
+			<div id="photo">
+				<img src="img/headimg.jpg" style="width: 180px;height: 180px;margin-left: 12px;opacity: 0.88;"/>
+			</div>
+			<div id="zhuml">
+				<ul>
+					<li><a href="#shouye" style="text-decoration: none;color: black;"><img src="img/未标题-0.png" id="menu"/><font  id="cy" style="position: relative;top: 20px;left: -50px;">首       页</font></a></li>
+					<li><a href="#first" style="text-decoration: none;color: black;"><img src="img/未标题-1.png" id="menu"/><font id="cy" style="position: relative;top: 20px;left: -50px;">个人档案</font></a></li>
+					<li><a href="#second" style="text-decoration: none;color: black;"><img src="img/未标题-2.png" id="menu"/><font id="cy" style="position: relative;top: 20px;left: -50px;">路上风景</font></a></li>
+					<li><a href="#third" style="text-decoration: none;color: black;"><img src="img/未标题-3.png" id="menu"/><font id="cy" style="position: relative;top: 20px;left: -50px;">更新日志</font></a></li>
+					<li><a href="#fourth" style="text-decoration: none;color: black;"><img src="img/未标题-4.png" id="menu"/><font id="cy" style="position: relative;top: 20px;left: -50px;">一 些 话</font></a></li>
+				</ul>
+			</div>
+		</div>
+		<div id="first">
+			<div id="fangkuang">
+				<font style="font-size: 20px;font-weight: 550;">个人档案</font><br /><br />
+				<hr color="#808080"/>
+				<div id="img_grow"><img src="img/1998.png"/><p id="wenzi">出生</p></div>
+				<div id="img_grow"><img src="img/2004.png"/><p id="wenzi">小学</p></div>
+				<div id="img_grow"><img src="img/2010.png"/><p id="wenzi">初中</p></div>
+				<div id="img_grow"><img src="img/2013.png"/><p id="wenzi">高中</p></div>
+				<div id="img_grow"><img src="img/2016.png"/><p id="wenzi">大学</p></div>
+				<div style="width: 100%;height: 70px;">
+					<div id="time"><p>|</p>1998</div>
+					<div id="time"><p>|</p>2004</div>
+					<div id="time"><p>|</p>2010</div>
+					<div id="time"><p>|</p>2013</div>
+					<div id="time"><p>|</p>2016</div>
+				</div>
+				<table id="table1">
+				<tr>
+					<td width="10%" >姓名:</td>
+					<td>JACY</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>别名:</td>
+					<td width="15%"></td>
+					<td>J、桔希</td>
+				</tr>
+				<tr>
+					<td></td><td></td><td></td>
+					<td width="13%">出生日期：</td>
+					<td>1998.05.26</td>
+				</tr>
+					<td></td><td></td><td></td><td></td>
+					<td width="13%">出生地：</td>
+					<td>苏州</td>
+				</tr>
+				<tr>
+					<td></td><td></td><td></td><td></td><td></td>
+					<td width="13%">星座：</td>
+					<td>处女座</td>
+				</tr>
+				<tr>
+					<td></td><td></td><td></td><td></td><td></td><td></td>
+					<td width="12%">血型：</td>
+					<td>A型血</td>
+				</tr>
+				<tr>
+					<td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+					<td width="12%">职业：</td>
+					<td>Web前端</td>
+				</tr>
+				</table>
+				<table id="table2">
+				<tr><tr>
+					<td width="10%" >学知识</td>
+					<td width="10%">看书、打游戏</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>去旅游</td>
+					<td width="7%"></td>
+					<td>法国</td>
+				</tr>
+				<tr>
+					<td></td><td></td><td></td>
+					<td width="13%">养宠物</td>
+					<td>猫（异瞳猫）</td>
+				</tr>
+					<td></td><td></td><td></td><td></td>
+					<td width="13%">听音乐</td>
+					<td>尽头</td>
+				</tr>
+				<tr>
+					<td></td><td></td><td></td><td></td><td></td>
+					<td width="13%">做运动</td>
+					<td>有氧运动</td>
+				</tr>
+				<tr>
+					<td></td><td></td><td></td><td></td><td></td><td></td>
+					<td width="12%">尝美食</td>
+					<td>甜食</td>
+				</tr>
+				<tr>
+					<td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+					<td width="12%">偏安静</td>
+					<td >睡觉</td>
+				</tr>
+				</table>
+				<div style="width: 140px;height: 27px;border: 1px solid #e2c9aa;position: absolute;left: 900px;top: 520px;">
+					<p style="text-align: center;font-size: 20px;color: #e2c9aa;">基本信息</p>
+				</div>
+				<div style="width: 140px;height: 27px;border: 1px solid #6fa66f;position: absolute;left: 300px;top: 920px">
+					<p style="text-align: center;font-size: 20px;color: #6fa66f;">兴趣爱好</p>
+				</div>
+			</div>			
+		</div>
+		</div>
+		<div id="second">
+			<div id="fangkuang">
+				<font style="font-size: 20px;font-weight: 550;">路上风景</font><br /><br />
+				<hr color="#808080"/>
+				<div id="img_grow"><img src="img/花纹1.png" style="float: left;"/><img src="img/花纹.png" style="margin-left: 100px;"/></div>
+				<div id="img_grow"><img src="img/花纹1.png" style="float: left;"/><img src="img/花纹.png" style="margin-left: 100px;"/></div>
+				<div id="img_grow"><img src="img/花纹1.png" style="float: left;"/><img src="img/花纹.png" style="margin-left: 100px;"/></div>
+				<div id="img_grow"><img src="img/花纹1.png" style="float: left;"/><img src="img/花纹.png" style="margin-left: 100px;"/></div>
+				<div id="img_grow"><img src="img/花纹1.png" style="float: left;"/><img src="img/花纹.png" style="margin-left: 100px;"/></div>
+				<div id="time1"><a class="font_color" style="color: #6FA66F;text-decoration: none;" href="javascript:V(0)" onclick="C(0)"><font><p>|</p><p>2008</p>卡帕多奇亚</font></a></div>
+				<div id="time1"><a class="font_color" style="color: black;text-decoration: none;" href="javascript:V(1)" onclick="C(1)"><font><p>|</p><p>2010</p>费特希那</font></a></div>
+				<div id="time1"><a class="font_color" style="color: black;text-decoration: none;" href="javascript:V(2)" onclick="C(2)"><font><p>|</p><p>2012</p>安塔利亚</font></a></div>
+				<div id="time1"><a class="font_color" style="color: black;text-decoration: none;" href="javascript:V(3)" onclick="C(3)"><font><p>|</p><p>2014</p>库萨达瑟</font></a></div>
+				<div id="time1"><a class="font_color" style="color: black;text-decoration: none;" href="javascript:V(4)" onclick="C(4)"><font><p>|</p><p>2016</p>伊斯塔布尔</font></a></div>
+				<div id="view1" class="view">
+					<font>
+					<p align="center">--卡帕多奇亚--</p>
+					<p align="center">找个晴天，迎着朝阳，静静地漂浮在变幻莫测的峡谷之上。乘上热气球，出发咯</p>
+					</font>
+					<div onmouseover="begin(0)" onmouseout="end(0)" style="">
+						<img src="img/风景/kpdqy1 (1).jpg" width="100%" height="85%"/>
+						<nav><p align="center">乘坐热气球吧！</p></nav>
+					</div>
+					<div  onmouseover="begin(1)" onmouseout="end(1)">
+						<img src="img/风景/kpdqy1 (2).jpg" width="100%" height="85%"/>
+						<nav><p align="center">乘坐热气球吧！</p></nav>
+					</div>
+					<div onmouseover="begin(2)" onmouseout="end(2)">
+						<img src="img/风景/kpdqy1 (3).jpg" width="100%" height="85%"/>
+						<nav><p align="center">乘坐热气球吧！</p></nav>
+					</div>
+					<div onmouseover="begin(3)" onmouseout="end(3)">
+						<img src="img/风景/kpdqy1 (4).jpg" width="100%" height="85%"/>
+						<nav><p align="center">乘坐热气球吧！</p></nav>
+					</div>
+					<div onmouseover="begin(4)" onmouseout="end(4)">
+						<img src="img/风景/kpdqy1 (1).jpg" width="100%" height="85%"/>
+						<nav><p align="center">乘坐热气球吧！</p></nav>
+					</div>
+					<div onmouseover="begin(5)" onmouseout="end(5)">
+						<img src="img/风景/kpdqy1 (4).jpg" width="100%" height="85%"/>
+						<nav><p align="center">乘坐热气球吧！</p></nav>
+					</div>
+					<div style="width: 100%;height: 80px;box-shadow: none;"><font>
+							<p align="center">--卡帕多奇亚--</p>
+							<p align="center">找个晴天，迎着朝阳，静静地漂浮在变幻莫测的峡谷之上。乘上热气球，出发咯</p>
+					</font></div>		
+				</div>
+				<div id="view2" class="view">
+					<font>
+					<p align="center">--费特希那--</p>
+					<p align="center">费特希耶是土耳其南部的著名古镇和度假胜地。</p>
+					</font>
+					<div onmouseover="begin(6)" onmouseout="end(6)">
+						<img src="img/风景/ftxy (1).jpg" width="100%" height="85%"/>
+						<nav><p align="center">乘坐热气球吧！</p></nav>
+					</div>
+					<div onmouseover="begin(7)" onmouseout="end(7)">
+						<img src="img/风景/ftxy (2).jpg" width="100%" height="85%"/>
+						<nav><p align="center">乘坐热气球吧！</p></nav>
+					</div>
+					<div onmouseover="begin(8)" onmouseout="end(8)">
+						<img src="img/风景/ftxy (3).jpg" width="100%" height="85%"/>
+						<nav><p align="center">乘坐热气球吧！</p></nav>
+					</div>
+					<div onmouseover="begin(9)" onmouseout="end(9)">
+						<img src="img/风景/ftxy (4).jpg" width="100%" height="85%"/>
+						<nav><p align="center">乘坐热气球吧！</p></nav>
+					</div>
+					<div onmouseover="begin(10)" onmouseout="end(10)">
+						<img src="img/风景/ftxy (1).jpg" width="100%" height="85%"/>
+						<nav><p align="center">乘坐热气球吧！</p></nav>
+					</div>
+					<div onmouseover="begin(11)" onmouseout="end(11)">
+						<img src="img/风景/ftxy (3).jpg" width="100%" height="85%"/>
+						<nav><p align="center">乘坐热气球吧！</p></nav>
+					</div>
+					<div style="width: 100%;height: 80px;box-shadow: none;"><font>
+							<p align="center">--费特希那--</p>
+							<p align="center">费特希耶是土耳其南部的著名古镇和度假胜地。</p>
+					</font></div>
+					</div>
+				<div id="view3" class="view">
+					<font>
+					<p align="center">--安塔利亚--</p>
+					<p align="center">安塔利亚是土耳其最美丽的地区，它位于地中海沿岸，被无数群山环绕。</p>
+					</font>
+					<div onmouseover="begin(12)" onmouseout="end(12)">
+						<img src="img/风景/atly (1).jpg" width="100%" height="85%"/>
+						<nav><p align="center">乘坐热气球吧！</p></nav>
+					</div>
+					<div onmouseover="begin(13)" onmouseout="end(13)">
+						<img src="img/风景/atly (2).jpg" width="100%" height="85%"/>
+						<nav><p align="center">乘坐热气球吧！</p></nav>
+					</div>
+					<div onmouseover="begin(14)" onmouseout="end(14)">
+						<img src="img/风景/atly (3).jpg" width="100%" height="85%"/>
+						<nav><p align="center">乘坐热气球吧！</p></nav>
+					</div>
+					<div onmouseover="begin(15)" onmouseout="end(15)">
+						<img src="img/风景/atly (4).jpg" width="100%" height="85%"/>
+						<nav><p align="center">乘坐热气球吧！</p></nav>
+					</div>
+					<div onmouseover="begin(16)" onmouseout="end(16)">
+						<img src="img/风景/atly (5).jpg" width="100%" height="85%"/>
+						<nav><p align="center">乘坐热气球吧！</p></nav>
+					</div>
+					<div onmouseover="begin(17)" onmouseout="end(17)">
+						<img src="img/风景/atly (6).jpg" width="100%" height="85%"/>
+						<nav><p align="center">乘坐热气球吧！</p></nav>
+					</div>	
+					<div style="width: 100%;height: 80px;box-shadow: none;"><font>
+							<p align="center">--安塔利亚--</p>
+							<p align="center">安塔利亚是土耳其最美丽的地区，它位于地中海沿岸，被无数群山环绕。</p>
+					</font></div>
+				</div>
+				<div id="view4" class="view">
+					<font>
+					<p align="center">--库萨达瑟--</p>
+					<p align="center">在这里吹吹海风，拍拍日落，或只是简单地对着爱琴海发呆。</p>
+					</font>
+					<div onmouseover="begin(18)" onmouseout="end(18)">
+						<img src="img/风景/ksds (1).jpg" width="100%" height="85%"/>
+						<nav><p align="center">乘坐热气球吧！</p></nav>
+					</div>
+					<div onmouseover="begin(19)" onmouseout="end(19)">
+						<img src="img/风景/ksds (3).jpg" width="100%" height="85%"/>
+						<nav><p align="center">乘坐热气球吧！</p></nav>
+					</div>
+					<div onmouseover="begin(20)" onmouseout="end(20)">
+						<img src="img/风景/ksds (2).jpg" width="100%" height="85%"/>
+						<nav><p align="center">乘坐热气球吧！</p></nav>
+					</div>
+					<div onmouseover="begin(21)" onmouseout="end(21)">
+						<img src="img/风景/ksds (3).jpg" width="100%" height="85%"/>
+						<nav><p align="center">乘坐热气球吧！</p></nav>
+					</div>
+					<div onmouseover="begin(22)" onmouseout="end(22)">
+						<img src="img/风景/ksds (2).jpg" width="100%" height="85%"/>
+						<nav><p align="center">乘坐热气球吧！</p></nav>
+					</div>
+					<div onmouseover="begin(23)" onmouseout="end(23)">
+						<img src="img/风景/ksds (1).jpg" width="100%" height="85%"/>
+						<nav><p align="center">乘坐热气球吧！</p></nav>
+					</div>	
+					<div style="width: 100%;height: 80px;box-shadow: none;"><font>
+							<p align="center">--库萨达瑟--</p>
+							<p align="center">在这里吹吹海风，拍拍日落，或只是简单地对着爱琴海发呆。</p>
+					</font></div>
+				</div>
+				<div id="view5" class="view">
+					<font>
+					<p align="center">--伊斯塔布尔--</p>
+					<p align="center">在市内西岸旧城区里，历代各帝国时期遗留下的石砌古堡、城垣、塔楼、渡槽随处可见。</p>
+					</font>
+					<div onmouseover="begin(24)" onmouseout="end(24)">
+						<img src="img/风景/ystbe (3).jpg" width="100%" height="85%"/>
+						<nav><p align="center">乘坐热气球吧！</p></nav>
+					</div>
+					<div onmouseover="begin(25)" onmouseout="end(25)">
+						<img src="img/风景/ystbe (1).jpg" width="100%" height="85%"/>
+						<nav><p align="center">乘坐热气球吧！</p></nav>
+					</div>
+					<div onmouseover="begin(26)" onmouseout="end(26)">
+						<img src="img/风景/ystbe (2).jpg" width="100%" height="85%"/>
+						<nav><p align="center">乘坐热气球吧！</p></nav>
+					</div>
+					<div onmouseover="begin(27)" onmouseout="end(27)">
+						<img src="img/风景/ystbe (1).jpg" width="100%" height="85%"/>
+						<nav><p align="center">乘坐热气球吧！</p></nav>
+					</div>
+					<div onmouseover="begin(28)" onmouseout="end(28)">
+						<img src="img/风景/ystbe (3).jpg" width="100%" height="85%"/>
+						<nav><p align="center">乘坐热气球吧！</p></nav>
+					</div>
+					<div onmouseover="begin(29)" onmouseout="end(29)">
+						<img src="img/风景/ystbe (2).jpg" width="100%" height="85%"/>
+						<nav><p align="center">乘坐热气球吧！</p></nav>
+					</div>
+					<br />
+					<div style="width: 100%;height: 80px;box-shadow: none;"><font>
+							<p align="center">--伊斯塔布尔--</p>
+							<p align="center">在市内西岸旧城区里，历代各帝国时期遗留下的石砌古堡、城垣、塔楼、渡槽随处可见。</p>
+					</font></div>
+				</div>
+	        </div> 
+		</div>
+		<div id="third">
+			<div id="fangkuang">
+			    <font style="font-size: 20px;font-weight: 550;">更新日志</font><br /><br />
+				<hr color="#808080"/>
+				<hr size="380px" width="1" style="margin-left: 300px;position: absolute;"/>
+				<div id="diary">
+					<br />
+					<span>2010—2011年</span>
+					<i onclick="change_trangle01()"></i><br />
+					<div class="year_2010">
+						<img src="img/timg.png" id="img1"/>
+						<img src="img/ts1.png" id="img2"/>
+						<img src="img/ts2.png" id="img3"/>
+						<img src="img/ts3.png" id="img4"/>
+						<font style="position:absolute;top: 30px;left: 50px;">
+							<b>1月16日</b>
+							<span>今天是元宵节！大家都聚在一起，很开心！</span><br />
+						</font>
+						<font style="position:absolute;top: 105px;left: 50px;">
+							<b>5月5日 </b>
+							<span>今天是端午节！我吃了很多粽子！</span><br />
+						</font>
+						<font style="position:absolute;top: 185px;left: 50px;">
+							<b>8月15日</b>
+							<span>今天是中秋节！希望大家团团圆圆！</span><br />
+						</font>
+						<font style="position:absolute;top: 265px;left: 50px;">
+							<b>10月1日</b>
+							<span>今天是国庆节！中华人民共和国万岁！</span><br />
+						</font>
+					</div>
+				<div id="diary">
+					<span>2012—2013年</span>
+					<i onclick="change_trangle02()"></i><br />
+					<div class="year_2012">
+						<hr size="320px" width="1" style="margin-left: 150px;position: absolute;"/>
+						<img src="img/timg.png" id="img1"/>
+						<img src="img/ts1.png" id="img2"/>
+						<img src="img/ts2.png" id="img3"/>
+						<img src="img/ts3.png" id="img4"/>
+						<font style="position:absolute;top: 30px;left: 50px;">
+							<b>1月16日</b>
+							<span>今天是元宵节！大家都聚在一起，很开心！</span><br />
+						</font>
+						<font style="position:absolute;top: 105px;left: 50px;">
+							<b>5月5日 </b>
+							<span>今天是端午节！我吃了很多粽子！</span><br />
+						</font>
+						<font style="position:absolute;top: 185px;left: 50px;">
+							<b>8月15日</b>
+							<span>今天是中秋节！希望大家团团圆圆！</span><br />
+						</font>
+						<font style="position:absolute;top: 265px;left: 50px;">
+							<b>10月1日</b>
+							<span>今天是国庆节！中华人民共和国万岁！</span><br />
+						</font>
+					</div>
+				</div>
+				<div id="diary">
+					<span>2014—2015年</span>
+					<i onclick="change_trangle03()"></i><br />
+					<div class="year_2014">
+						<hr size="350px" width="1" style="margin-left: 150px;position: absolute;"/>
+						<img src="img/timg.png" id="img1"/>
+						<img src="img/ts1.png" id="img2"/>
+						<img src="img/ts2.png" id="img3"/>
+						<img src="img/ts3.png" id="img4"/>
+						<font style="position:absolute;top: 30px;left: 50px;">
+							<b>1月16日</b>
+							<span>今天是元宵节！大家都聚在一起，很开心！</span><br />
+						</font>
+						<font style="position:absolute;top: 105px;left: 50px;">
+							<b>5月5日 </b>
+							<span>今天是端午节！我吃了很多粽子！</span><br />
+						</font>
+						<font style="position:absolute;top: 185px;left: 50px;">
+							<b>8月15日</b>
+							<span>今天是中秋节！希望大家团团圆圆！</span><br />
+						</font>
+						<font style="position:absolute;top: 265px;left: 50px;">
+							<b>10月1日</b>
+							<span>今天是国庆节！中华人民共和国万岁！</span><br />
+						</font>
+					</div>
+				</div>
+				<div id="diary">
+					<span>2016—2017年</span>
+					<i onclick="change_trangle04()" id="i4"></i><br />
+					<div class="year_2016">
+						<img src="img/timg.png" id="img1"/>
+						<img src="img/ts1.png" id="img2"/>
+						<img src="img/ts2.png" id="img3"/>
+						<img src="img/ts3.png" id="img4"/>
+						<font style="position:absolute;top: 30px;left: 50px;">
+							<b>1月16日</b>
+							<span>今天是元宵节！大家都聚在一起，很开心！</span><br />
+						</font>
+						<font style="position:absolute;top: 105px;left: 50px;">
+							<b>5月5日</b>
+							<span>今天是端午节！我吃了很多粽子！</span><br />
+						</font>
+					</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="fourth">
+			<div id="fangkuang">
+			    <font style="font-size: 20px;font-weight: 550;">一些话</font><br /><br />
+				<hr color="#808080"/>	
+					<div id="left1">
+					   <a href="javascript:">我想说的话</a>
+					</div>
+					<div id="right1">
+						<font>
+						<br />1、总是在每一个深夜里凝视着你的天空，期待有你的陪伴。倘若有一天，你真的离开我远去，那么，这一份爱会深藏在我心底最软的地方，不让人碰触!我会让它们陪我，直到生命结束!
+						<br />2、我们之间，无论爱还是不爱，无论继续还是结束，我都无悔!因为，我已将这份深爱变成了我一个人的事，对你，我已别无他求！
+						<br />3、在烟波浩淼的大海上你的目光是鼓满我船帆的一阵风，载着我如离弦之箭驶向遥远的彼岸。在七彩的霓虹灯下，迷失了方向。是你的目光带着我穿越四季的喧嚣走向永不褪色的眷恋。你久久凝望的目光里，那股无比的亲切和豪情在我的心海中放歌。
+						<br />4、在我踏上远方学习那天，我首先想到的就是要感恩父母，因为有了父母才有了我，才使我有机会在这五彩缤纷的世界里体味人生的冷暖，享受生活的快乐与幸福，是他们给了我生命，给了我无微不至的关怀。儿女有了快乐，最为之开心的是父母，儿女有了苦闷，最为之牵挂的也是父母。不管父母的社会地位、知识水平以及其它素养如何，他们都是我今生最大的恩人，是值得我们永远去爱的人。
+						<br />5、其实很想对你说，你不必坚强，当你感到疲倦时，我的怀抱是你最温柔的港湾;当病痛侵袭你的身体时，我愿意和你一起承担着;在你伤心失望时，我会用最灿烂的微笑对你说：坚持，你是最棒的;当所有的人都离你而去，我将会是你最后的归宿。
+						<br />6、“百行孝为先孝”。孝，其为人之本也，一个只有懂得感恩父母的人,才能算是一个完整的人。让我们学会感恩父母吧!用一颗感恩的心去对待父母，用一颗真诚的心去与父母交流，不要再认为父母是理所当然帮我们做任何事情的，他们把我们带到这美丽的世界，已经是足够的伟大，且将我们养育成人，不求回报，默默的为我们付出，我们就别再一味地索求他们的付出。
+						</font>
+					</div>
+					<div id="left2" onclick="change_talk1()">
+						<a href="javascript:">激励你自己</a>						
+					</div>
+					<div id="right2">
+						<font>
+						<br />1、总是在每一个深夜里凝视着你的天空，期待有你的陪伴。倘若有一天，你真的离开我远去，那么，这一份爱会深藏在我心底最软的地方，不让人碰触!我会让它们陪我，直到生命结束!
+						<br />2、我们之间，无论爱还是不爱，无论继续还是结束，我都无悔!因为，我已将这份深爱变成了我一个人的事，对你，我已别无他求！
+						<br />3、在烟波浩淼的大海上你的目光是鼓满我船帆的一阵风，载着我如离弦之箭驶向遥远的彼岸。在七彩的霓虹灯下，迷失了方向。是你的目光带着我穿越四季的喧嚣走向永不褪色的眷恋。你久久凝望的目光里，那股无比的亲切和豪情在我的心海中放歌。
+						<br />4、在我踏上远方学习那天，我首先想到的就是要感恩父母，因为有了父母才有了我，才使我有机会在这五彩缤纷的世界里体味人生的冷暖，享受生活的快乐与幸福，是他们给了我生命，给了我无微不至的关怀。儿女有了快乐，最为之开心的是父母，儿女有了苦闷，最为之牵挂的也是父母。不管父母的社会地位、知识水平以及其它素养如何，他们都是我今生最大的恩人，是值得我们永远去爱的人。
+						<br />5、其实很想对你说，你不必坚强，当你感到疲倦时，我的怀抱是你最温柔的港湾;当病痛侵袭你的身体时，我愿意和你一起承担着;在你伤心失望时，我会用最灿烂的微笑对你说：坚持，你是最棒的;当所有的人都离你而去，我将会是你最后的归宿。
+						<br />6、“百行孝为先孝”。孝，其为人之本也，一个只有懂得感恩父母的人,才能算是一个完整的人。让我们学会感恩父母吧!用一颗感恩的心去对待父母，用一颗真诚的心去与父母交流，不要再认为父母是理所当然帮我们做任何事情的，他们把我们带到这美丽的世界，已经是足够的伟大，且将我们养育成人，不求回报，默默的为我们付出，我们就别再一味地索求他们的付出。
+						</font>
+					</div>
+					<div id="left3" onclick="change_talk2()">
+						<a href="javascript:">推荐的书籍</a>
+						
+					</div>
+					<div id="right3">
+						<font>
+						<br />1、总是在每一个深夜里凝视着你的天空，期待有你的陪伴。倘若有一天，你真的离开我远去，那么，这一份爱会深藏在我心底最软的地方，不让人碰触!我会让它们陪我，直到生命结束!
+						<br />2、我们之间，无论爱还是不爱，无论继续还是结束，我都无悔!因为，我已将这份深爱变成了我一个人的事，对你，我已别无他求！
+						<br />3、在烟波浩淼的大海上你的目光是鼓满我船帆的一阵风，载着我如离弦之箭驶向遥远的彼岸。在七彩的霓虹灯下，迷失了方向。是你的目光带着我穿越四季的喧嚣走向永不褪色的眷恋。你久久凝望的目光里，那股无比的亲切和豪情在我的心海中放歌。
+						<br />4、在我踏上远方学习那天，我首先想到的就是要感恩父母，因为有了父母才有了我，才使我有机会在这五彩缤纷的世界里体味人生的冷暖，享受生活的快乐与幸福，是他们给了我生命，给了我无微不至的关怀。儿女有了快乐，最为之开心的是父母，儿女有了苦闷，最为之牵挂的也是父母。不管父母的社会地位、知识水平以及其它素养如何，他们都是我今生最大的恩人，是值得我们永远去爱的人。
+						<br />5、其实很想对你说，你不必坚强，当你感到疲倦时，我的怀抱是你最温柔的港湾;当病痛侵袭你的身体时，我愿意和你一起承担着;在你伤心失望时，我会用最灿烂的微笑对你说：坚持，你是最棒的;当所有的人都离你而去，我将会是你最后的归宿。
+						<br />6、“百行孝为先孝”。孝，其为人之本也，一个只有懂得感恩父母的人,才能算是一个完整的人。让我们学会感恩父母吧!用一颗感恩的心去对待父母，用一颗真诚的心去与父母交流，不要再认为父母是理所当然帮我们做任何事情的，他们把我们带到这美丽的世界，已经是足够的伟大，且将我们养育成人，不求回报，默默的为我们付出，我们就别再一味地索求他们的付出。
+						</font>
+					</div>
+					<div id="left4" onclick="change_talk3()">
+						<a href="javascript:">要靠你自己</a>
+					</div>
+					<div id="right4">
+						<font>
+						<br />1、总是在每一个深夜里凝视着你的天空，期待有你的陪伴。倘若有一天，你真的离开我远去，那么，这一份爱会深藏在我心底最软的地方，不让人碰触!我会让它们陪我，直到生命结束!
+						<br />2、我们之间，无论爱还是不爱，无论继续还是结束，我都无悔!因为，我已将这份深爱变成了我一个人的事，对你，我已别无他求！
+						<br />3、在烟波浩淼的大海上你的目光是鼓满我船帆的一阵风，载着我如离弦之箭驶向遥远的彼岸。在七彩的霓虹灯下，迷失了方向。是你的目光带着我穿越四季的喧嚣走向永不褪色的眷恋。你久久凝望的目光里，那股无比的亲切和豪情在我的心海中放歌。
+						<br />4、在我踏上远方学习那天，我首先想到的就是要感恩父母，因为有了父母才有了我，才使我有机会在这五彩缤纷的世界里体味人生的冷暖，享受生活的快乐与幸福，是他们给了我生命，给了我无微不至的关怀。儿女有了快乐，最为之开心的是父母，儿女有了苦闷，最为之牵挂的也是父母。不管父母的社会地位、知识水平以及其它素养如何，他们都是我今生最大的恩人，是值得我们永远去爱的人。
+						<br />5、其实很想对你说，你不必坚强，当你感到疲倦时，我的怀抱是你最温柔的港湾;当病痛侵袭你的身体时，我愿意和你一起承担着;在你伤心失望时，我会用最灿烂的微笑对你说：坚持，你是最棒的;当所有的人都离你而去，我将会是你最后的归宿。
+						<br />6、“百行孝为先孝”。孝，其为人之本也，一个只有懂得感恩父母的人,才能算是一个完整的人。让我们学会感恩父母吧!用一颗感恩的心去对待父母，用一颗真诚的心去与父母交流，不要再认为父母是理所当然帮我们做任何事情的，他们把我们带到这美丽的世界，已经是足够的伟大，且将我们养育成人，不求回报，默默的为我们付出，我们就别再一味地索求他们的付出。
+						</font>
+					</div>
+			</div>
+		</div>
+		 <a style="position: fixed;z-index: 100;top: 500px;right: 90px;" href="#shouye"><img src="img/miaodian.png" width="60px" height="60px"/></a>
+	</body>
+</html>
+<script>
+	var self=document.getElementsByTagName("input");
+	function unfold(i){
+		if (i==0) {
+			self[0].style.animation="an_unfold 0.5s forwards";
+		} 
+		else{
+			self[1].style.animation="an_unfold 0.5s forwards";
+		}
+	}
+	function fold(i){
+		if (i==1) {
+			self[1].style.animation="an_fold 0.5s forwards";
+		} else{
+			self[0].style.animation="an_fold 0.5s forwards";
+		}
+	}
+    function V(j){
+	var found=document.getElementsByClassName("view");
+	for(var i=0;i<found.length;i++){
+		if(i==j){
+			found[i].style.display="block";
+		}
+		else
+			found[i].style.display="none";
+	}
+}
+    function C(c){
+	var num=document.getElementsByClassName("font_color");
+	for(var z=0;z<num.length;z++){
+		if(z==c){
+			num[z].style.color="#6FA66F";
+		}
+		else
+		    num[z].style.color="black";
+	}
+}
+    function begin(o){
+	var a=document.getElementsByTagName("nav");
+	switch(o){
+		case 0:a[0].style.marginTop="-4px";
+			   a[0].style.backgroundColor="orange"; break;
+		case 1:a[1].style.marginTop="-4px";
+			   a[1].style.backgroundColor="orange";break;
+		case 2:a[2].style.marginTop="-4px";
+		       a[2].style.backgroundColor="orange";break;
+		case 3:a[3].style.marginTop="-4px";
+		       a[3].style.backgroundColor="orange";break;
+		case 4:a[4].style.marginTop="-4px";
+		       a[4].style.backgroundColor="orange";break;
+		case 5:a[5].style.marginTop="-4px";
+		       a[5].style.backgroundColor="orange";break;
+		case 6:a[6].style.marginTop="-4px";
+		       a[6].style.backgroundColor="orange";break;
+		case 7:a[7].style.marginTop="-4px";
+		       a[7].style.backgroundColor="orange";break;
+		case 8:a[8].style.marginTop="-4px";
+		       a[8].style.backgroundColor="orange";break;
+		case 9:a[9].style.marginTop="-4px";
+		       a[9].style.backgroundColor="orange";break;
+		case 10:a[10].style.marginTop="-4px";
+		       a[10].style.backgroundColor="orange";break;
+		case 11:a[11].style.marginTop="-4px";
+		       a[11].style.backgroundColor="orange";break;
+		case 12:a[12].style.marginTop="-4px";
+		       a[12].style.backgroundColor="orange";break;
+		case 13:a[13].style.marginTop="-4px";
+		       a[13].style.backgroundColor="orange";break;
+		case 14:a[14].style.marginTop="-4px";
+		       a[14].style.backgroundColor="orange";break;
+		case 15:a[15].style.marginTop="-4px";
+		       a[15].style.backgroundColor="orange";break;
+		case 16:a[16].style.marginTop="-4px";
+		       a[16].style.backgroundColor="orange";break;
+		case 17:a[17].style.marginTop="-4px";
+		       a[17].style.backgroundColor="orange";break;
+		case 18:a[18].style.marginTop="-4px";
+		       a[18].style.backgroundColor="orange";break;
+		case 19:a[19].style.marginTop="-4px";
+		       a[19].style.backgroundColor="orange";break;
+		case 20:a[20].style.marginTop="-4px";
+		       a[20].style.backgroundColor="orange";break;
+		case 21:a[21].style.marginTop="-4px";
+		       a[21].style.backgroundColor="orange";break;
+		case 22:a[22].style.marginTop="-4px";
+		       a[22].style.backgroundColor="orange";break;
+		case 23:a[23].style.marginTop="-4px";
+		       a[23].style.backgroundColor="orange";break;
+		case 24:a[24].style.marginTop="-4px";
+		       a[24].style.backgroundColor="orange";break;
+		case 25:a[25].style.marginTop="-4px";
+		       a[25].style.backgroundColor="orange";break;
+		case 26:a[26].style.marginTop="-4px";
+		       a[26].style.backgroundColor="orange";break;
+		case 27:a[27].style.marginTop="-4px";
+		       a[27].style.backgroundColor="orange";break;
+		case 28:a[28].style.marginTop="-4px";
+		       a[28].style.backgroundColor="orange";break;
+		case 29:a[29].style.marginTop="-4px";
+		       a[29].style.backgroundColor="orange";break;
+	}
+}
+    function end(p){
+	var a=document.getElementsByTagName("nav");
+	switch(p){
+		case 0:a[0].style.marginTop="40px";break;
+		case 1:a[1].style.marginTop="40px";break;
+		case 2:a[2].style.marginTop="40px";break;
+		case 3:a[3].style.marginTop="40px";break;
+		case 4:a[4].style.marginTop="40px";break;
+		case 5:a[5].style.marginTop="40px";break;
+		case 6:a[6].style.marginTop="40px";break;
+		case 7:a[7].style.marginTop="40px";break;
+		case 8:a[8].style.marginTop="40px";break;
+		case 9:a[9].style.marginTop="40px";break;
+		case 10:a[10].style.marginTop="40px";break;
+		case 11:a[11].style.marginTop="40px";break;
+		case 12:a[12].style.marginTop="40px";break;
+		case 13:a[13].style.marginTop="40px";break;
+		case 14:a[14].style.marginTop="40px";break;
+		case 15:a[15].style.marginTop="40px";break;
+		case 16:a[16].style.marginTop="40px";break;
+		case 17:a[17].style.marginTop="40px";break;
+		case 18:a[18].style.marginTop="40px";break;
+		case 19:a[19].style.marginTop="40px";break;
+		case 20:a[20].style.marginTop="40px";break;
+		case 21:a[21].style.marginTop="40px";break;
+		case 22:a[22].style.marginTop="40px";break;
+		case 23:a[23].style.marginTop="40px";break;
+		case 24:a[24].style.marginTop="40px";break;
+		case 25:a[25].style.marginTop="40px";break;
+		case 26:a[26].style.marginTop="40px";break;
+		case 27:a[27].style.marginTop="40px";break;
+		case 28:a[28].style.marginTop="40px";break;
+		case 29:a[29].style.marginTop="40px";break;
+	}
+}
+    var count=1;
+	var x=document.getElementsByTagName("i");
+    function change_trangle01(){
+	var y=document.getElementsByClassName("year_2010");
+	if(count%2==1){
+		 x[0].style.borderColor="gray transparent transparent transparent";
+		 y[0].style.animation="zhankai 0.5s  forwards";
+	}
+	else{
+		x[0].style.borderColor="transparent transparent transparent gray";
+	   	y[0].style.animation="shouhui 0.5s forwards";
+	}	 
+   count++;
+}
+	function change_trangle02(){
+		var y=document.getElementsByClassName("year_2012");
+		if(count%2==1){
+		 	x[1].style.borderColor="gray transparent transparent transparent";
+			 y[0].style.animation="zhankai 0.5s forwards";
+		}
+		else{
+			x[1].style.borderColor="transparent transparent transparent gray";
+	   		y[0].style.animation="shouhui 0.5s forwards";
+		}	 
+   		count++;
+	}
+	function change_trangle03(){
+		var y=document.getElementsByClassName("year_2014");
+		if(count%2==1){
+			 x[2].style.borderColor="gray transparent transparent transparent";
+			 y[0].style.animation="zhankai 0.5s forwards";
+		}
+		else{
+			x[2].style.borderColor="transparent transparent transparent gray";
+	   		y[0].style.animation="shouhui 0.5s forwards";
+		}	 
+   		count++;
+	}
+	function change_trangle04(){
+		var y=document.getElementsByClassName("year_2016");
+		if(count%2==1){
+			 x[3].style.borderColor="transparent transparent transparent gray";
+			 y[0].style.animation="shouhui1 0.5s forwards";
+		}
+		else{
+			x[3].style.borderColor="gray transparent transparent transparent";
+	    	y[0].style.animation="zhankai1 0.5s forwards";
+		}	 
+   		count++;
+		}
+	var con=1;
+	function change_talk1(){
+		var s1=document.getElementById("left2");
+		var v1=document.getElementById("right2");
+		if(con%2==1){
+			s1.style.transform="translate(680px)";
+			v1.style.animation="sh 2s forwards";
+			v1.style.transform="translate(680px)";
+		}
+		else{
+			s1.style.transform="translate(0px)";
+			v1.style.animation="zk 2s forwards";
+			v1.style.transform="translate(0px)";	
+		}
+		con++;
+	}
+	var con1=1;
+	function change_talk2(){
+		var v1=document.getElementById("left3");
+		var s1=document.getElementById("right3");
+		if(con1%2==1){
+			v1.style.transform="translate(680px)";
+			s1.style.animation="sh 2s forwards";
+			s1.style.transform="translate(680px)";
+		}
+		else{
+			v1.style.transform="translate(0px)";
+			s1.style.animation="zk 2s forwards";
+			s1.style.transform="translate(0px)";		
+		}
+		con1++;
+	}
+	var con2=1;
+	function change_talk3(){
+		var v1=document.getElementById("left4");
+		var s1=document.getElementById("right4");
+		if(con2%2==1){
+			v1.style.transform="translate(680px)";
+			s1.style.animation="sh 2s forwards";
+			s1.style.transform="translate(680px)";
+		}
+		else{
+			v1.style.transform="translate(0px)";
+			s1.style.animation="zk 2s forwards";
+			s1.style.transform="translate(0px)";
+		}
+		con2++;
+	}
+</script>
